@@ -35,7 +35,7 @@ A: You need to restart ZNC after installing new python modules otherwise it won'
 
 Q: I like you and want to send you money
 
-A: You can moneys to paypal azelphur@azelphur.com or BTC address 1HCmvBfk8Pg51xXgEoDU2UXKVv6VatMKEC
+A: You can send money to paypal azelphur@azelphur.com or BTC address 1HCmvBfk8Pg51xXgEoDU2UXKVv6VatMKEC
 
 Matchers
 ==================
