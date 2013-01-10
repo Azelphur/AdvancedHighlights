@@ -1,0 +1,21 @@
+<? INC Header.tmpl ?>
+
+<form method="post" action="<? VAR ModPath ?>msg">
+	<? INC _csrf_check.tmpl ?>
+	<div class="section">
+		<h3>Advanced Highlights</h3>
+		<div class="sectionbg">
+			<div class="sectionbody">
+				<div class="subsection full">
+					<textarea name="config" style="width:98%;height:800px;"><? VAR config ?>
+</textarea>
+				</div>
+				<div class="subsection submitline">
+					<input type="submit" name="save" value="Save" />
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+<? INC Footer.tmpl ?>
