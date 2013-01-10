@@ -104,3 +104,28 @@ nick:
   - fred
   - bob
 </pre>
+
+Adding new filters
+==================
+Adding your own filter is relatively simple.
+
+Add a function to the AdvancedHighlights class that returns true or false, depending on your conditions
+
+For example, lets look at the channels filter
+
+<pre>
+def channels(self, args, data):
+  if data['channel'] in args:
+    return True
+  return False
+</pre>
+
+The args variable contains all the config options for your rule, in this case it's a list of channels.
+data is a dictionary that contains information about the event, currently it has the following subkeys
+*text* - the message
+*nick* - the nickname that triggered the event
+*host* - the hostname that triggered the event
+*channel* - the channel the event was triggered on
+
+You don't need to do anything else but create the function, after that it's all ready to go! the function name is the name of the matcher for the config. Submit pull requests for interesting filters!
+
