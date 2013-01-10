@@ -21,15 +21,20 @@ Installing
 FAQ
 ==================
 Q: I can't see AdvancedHighlights in my module list!
+
 A: You probably don't have modpython loaded, make sure to do that.
 
+
 Q: I can't see modpython either!
+
 A: You probably built ZNC without python support, rebuild ZNC using ./configure --enable-python
 
 Q: I get an ImportError even though I've installed the dependencies!
+
 A: You need to restart ZNC after installing new python modules otherwise it won't see them.
 
 Q: I like you and want to send you money
+
 A: You can moneys to paypal azelphur@azelphur.com or BTC address 1HCmvBfk8Pg51xXgEoDU2UXKVv6VatMKEC
 
 Matchers
