@@ -57,7 +57,7 @@ class AdvancedHighlights():
         return False
 
     def nick(self, args, data):
-        if data["nick"] in args:
+        if data["nick"].lower() in (nick.lower() for nick in args):
             return True
         return False
 
@@ -69,25 +69,25 @@ class AdvancedHighlights():
 
             for matcher, arguments in filters.items():
 
-                match = False
+                negate = False
                 if matcher[0] == '!':
-                    match = True
+                    negate = True
                     matcher = matcher[1:]
                 if matcher in self.config['config']['doLast']:
                     last.append((matcher, arguments))
                     continue
-                if getattr(self, matcher)(arguments, data) == match:
+                if getattr(self, matcher)(arguments, data) == negate:
                     matched = False
                     break
 
             # Do expensive checks last if all other checks have passed
             if matched:
                 for matcher, arguments in last:
-                    match = False
+                    negate = False
                     if matcher[0] == '!':
-                        match = True
+                        negate = True
                         matcher = matcher[1:]
-                    if getattr(self, matcher)(arguments, data) == match:
+                    if getattr(self, matcher)(arguments, data) == negate:
                         matched = False
                         break
 
