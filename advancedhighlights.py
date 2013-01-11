@@ -23,7 +23,8 @@ class AdvancedHighlights():
 
     def loadConfig(self, config):
         self.config = config
-        self.gi = pygeoip.GeoIP(self.config['config']['geoip'], pygeoip.MEMORY_CACHE)
+        if self.config != None:
+            self.gi = pygeoip.GeoIP(self.config['config']['geoip'], pygeoip.MEMORY_CACHE)
 
     def text(self, args, data):
         if args['case_sensitive']:
@@ -127,7 +128,7 @@ class advancedhighlights(znc.Module):
         try:
             self.ah.loadConfig(yaml.load(self.nv["config"]))
             return "Config Loaded sucessfully"
-        except yaml.scanner.ScannerError as e:
+        except (yaml.parser.ParserError, yaml.scanner.ScannerError) as e:
             self.ah.loadConfig(None)
-            return str(e)
+            return "Your config is invalid! " + str(e)
 
